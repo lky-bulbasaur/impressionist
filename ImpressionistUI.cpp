@@ -837,6 +837,14 @@ int ImpressionistUI::getAngle()
 }
 
 //------------------------------------------------
+// Return the EDGE detection threshold
+//------------------------------------------------
+int ImpressionistUI::getThreshold()
+{
+	return m_eThreshold;
+}
+
+//------------------------------------------------
 // Return the brush alpha value
 //------------------------------------------------
 double ImpressionistUI::getAlpha()

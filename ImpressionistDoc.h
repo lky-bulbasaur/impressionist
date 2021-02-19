@@ -12,6 +12,17 @@
 
 class ImpressionistUI;
 
+class intPair {
+public:
+	int a, b;
+
+	intPair() {};
+	intPair(int aa, int bb) {
+		a = aa;
+		b = bb;
+	};
+};
+
 class ImpressionistDoc 
 {
 public:
@@ -32,6 +43,8 @@ public:
 	int		getSize();							// get the UI size
 	int		getWidth();
 	int		getAngle();
+	int		getThreshold();
+	int		getStrokeDirectionType();
 	double	getAlpha();
 	void	setSize(int size);					// set the UI size
 	char*	getImageName();						// get the current image name
@@ -52,9 +65,14 @@ public:
 	unsigned char*	m_ucEdge;
 	unsigned char*	m_ucAnother;
 
+	// 2D arrays that store the gradient of respective images
+	intPair**	g_ucOrig;
+
 
 	// The current active brush.
-	ImpBrush*			m_pCurrentBrush;	
+	ImpBrush*			m_pCurrentBrush;
+	int					m_lDirType;	// Direction type for LINE brush
+
 	// Size of the brush.
 	int m_nSize;							
 
@@ -65,7 +83,11 @@ public:
 	// Get the color of the original picture at the specified coord
 	GLubyte* GetOriginalPixel( int x, int y );   
 	// Get the color of the original picture at the specified point	
-	GLubyte* GetOriginalPixel( const Point p );  
+	GLubyte* GetOriginalPixel( const Point p );
+	// Generate the gradient array of the one currently pointed to by m_ucBitmap
+	intPair** getGradient();
+	// Generate the edge image of the one currently pointed to by m_ucBitmap
+	unsigned char* getEdge(intPair** gradient);
 
 
 private:
