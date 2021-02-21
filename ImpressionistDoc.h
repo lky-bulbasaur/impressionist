@@ -45,6 +45,7 @@ public:
 	int		getAngle();
 	int		getThreshold();
 	int		getStrokeDirectionType();
+	int		getBrushType();
 	double	getAlpha();
 	void	setSize(int size);					// set the UI size
 	char*	getImageName();						// get the current image name
@@ -71,6 +72,7 @@ public:
 
 	// The current active brush.
 	ImpBrush*			m_pCurrentBrush;
+	int					m_pCurrentBrushType;
 	int					m_lDirType;	// Direction type for LINE brush
 
 	// Size of the brush.
