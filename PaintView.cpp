@@ -213,6 +213,9 @@ int PaintView::handle(int event)
 			eventToDo=LEFT_MOUSE_DRAG;
 		isAnEvent=1;
 		redraw();
+
+		// Invoke OriginalView to draw cursor
+		m_pDoc->m_pUI->m_origView->drawCursor(Point(coord.x + m_nStartCol, m_nEndRow - coord.y));
 		break;
 	case FL_RELEASE:
 		coord.x = Fl::event_x();
@@ -227,6 +230,9 @@ int PaintView::handle(int event)
 	case FL_MOVE:
 		coord.x = Fl::event_x();
 		coord.y = Fl::event_y();
+
+		// Invoke OriginalView to draw cursor
+		m_pDoc->m_pUI->m_origView->drawCursor(Point(coord.x + m_nStartCol, m_nEndRow - coord.y));
 		break;
 	default:
 		return 0;
