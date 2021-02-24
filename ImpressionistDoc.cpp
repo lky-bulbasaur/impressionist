@@ -11,6 +11,7 @@
 #include "impressionistUI.h"
 
 #include "ImpBrush.h"
+#include "BayesianMatting.h"
 
 // Include individual brush headers here.
 #include "PointBrush.h"
@@ -563,3 +564,6 @@ unsigned char* ImpressionistDoc::getEdge(intPair** gradient) {
 	return edgeImage;
 }
 
+void ImpressionistDoc::doBayesianMatting() {
+	//TODO Bayesian
+}

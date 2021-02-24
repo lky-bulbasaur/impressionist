@@ -50,6 +50,7 @@ public:
 	int		loadMuralImage(char* iname);				// called by the UI to load mural image
 	int		saveImage(char *iname);						// called by the UI to save image
 
+	void	doBayesianMatting();				// called by the UI to do Bayesian Matting
 
 	int     clearCanvas();						// called by the UI to clear the drawing canvas
 	void	setBrushType(int type);				// called by the UI to set the brushType

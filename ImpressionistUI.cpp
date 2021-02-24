@@ -222,6 +222,11 @@ void ImpressionistUI::cb_load_mural_image(Fl_Menu_* o, void* v) {
 	}
 }
 
+void ImpressionistUI::cb_bayesian_matting(Fl_Menu_* o, void* v) {
+	ImpressionistDoc* pDoc = whoami(o)->getDocument();
+	pDoc->doBayesianMatting();
+}
+
 //------------------------------------------------------------------
 // Brings up a file chooser and then saves the painted image
 // This is called by the UI when the save image menu item is chosen
@@ -971,9 +976,11 @@ Fl_Menu_Item ImpressionistUI::menuitems[] = {
 		{ "&Swap...",		FL_ALT + 'w', (Fl_Callback*)ImpressionistUI::cb_swap },
 		{ "&Undo",			FL_ALT + 'z', (Fl_Callback*)ImpressionistUI::cb_undo, 0, FL_MENU_DIVIDER },
 
-		{ "&Load Edge Image...",	FL_ALT + 'e', (Fl_Callback*)ImpressionistUI::cb_load_edge_image },
-		{ "&Load Another Image...",	FL_ALT + 'a', (Fl_Callback*)ImpressionistUI::cb_load_another_image },
-		{ "&Load Mural Image...",	FL_ALT + 'm', (Fl_Callback*)ImpressionistUI::cb_load_mural_image, 0, FL_MENU_DIVIDER },
+		{ "Load Edge Image...", FL_ALT + 'e', (Fl_Callback*)ImpressionistUI::cb_load_edge_image },
+		{ "Load Another Image...", FL_ALT + 'a', (Fl_Callback*)ImpressionistUI::cb_load_another_image },
+		{ "Load Mural Image...", FL_ALT + 'm', (Fl_Callback*)ImpressionistUI::cb_load_mural_image, 0, FL_MENU_DIVIDER },
+
+		{ "Bayesian Matting", FL_ALT + 'y', (Fl_Callback*)ImpressionistUI::cb_bayesian_matting, 0, FL_MENU_DIVIDER },
 
 		{ "&Quit",			FL_ALT + 'q', (Fl_Callback*)ImpressionistUI::cb_exit },
 		{ 0 },
