@@ -1,3 +1,4 @@
+#pragma comment(lib, "Eigen")
 //
 // BayesianMatting.cpp
 //
@@ -30,12 +31,6 @@ void BayesianMatting::loadImg(char* iname)
 	this->width = w;
 	this->height = h;
 
-	unknown.clear();
-	img.clear();
-	trimap.clear();
-	fgImg.clear();
-	bgImg.clear();
-	alpha.clear();
 
 	for (int i = 0; i < height; i++) {
 		vector<vector<double>> fgRow;
@@ -59,7 +54,7 @@ void BayesianMatting::loadImg(char* iname)
 }
 
 double BayesianMatting::solve(double sigma, int nearest, int minNearest) {
-
+	return 1;
 }
 
 vector<vector<double>> BayesianMatting::getGaussianFilter(int hsize, double sigma) {
@@ -82,6 +77,6 @@ vector<vector<double>> BayesianMatting::getGaussianFilter(int hsize, double sigm
 	return filter;
 }
 
-void BayesianMatting::findMaxLikelihood(double meanF, double sigmaF, double meanB, double sigmaB, double C, double sigmaC, double alpha_init, int maxIter, double minLike) {
+void BayesianMatting::solveFBAlpha(double meanF, double sigmaF, double meanB, double sigmaB, double alpha_init, double C, double sigmaC, int maxIter, double minLike) {
 
 }

@@ -1,3 +1,4 @@
+#pragma comment(lib, "Eigen")
 //
 // BayesianMatting.h
 //
@@ -28,9 +29,7 @@ public:
 private:
 	void loadImg(char* iname);
 	std::vector<std::vector<double>> getGaussianFilter(int size, double sigma);
-	void findMaxLikelihood(double meanF, double sigmaF, double meanB, double sigmaB, double C, double sigmaC, double alpha_init, int maxIter, double minLike);
-	double getMean();
-	double getsigMa();
+	void solveFBAlpha(double meanF, double sigmaF, double meanB, double sigmaB, double alpha_init, double C, double sigmaC = BAYESIAN_SIGMA_C, int maxIter = BAYESIAN_MAX_ITER, double minLike = BAYESIAN_MIN_LIKE);
 	
 	int height;
 	int width;
@@ -40,8 +39,6 @@ private:
 	MatrixXd bgImg;
 	MatrixXd trimap;
 	MatrixXd alphamap;
-
-
 };
 
 #endif
