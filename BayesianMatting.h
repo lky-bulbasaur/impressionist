@@ -1,4 +1,3 @@
-#pragma comment(lib, "Eigen")
 //
 // BayesianMatting.h
 //
