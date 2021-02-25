@@ -60,6 +60,9 @@
     <ClCompile Include="BayesianMatting.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="OrchardBouman.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="bitmap.h">
@@ -105,6 +108,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="BayesianMatting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="OrchardBouman.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
